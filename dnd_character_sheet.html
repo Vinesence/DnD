@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>D&D 5e Лист персонажа</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #000;
+      margin: 0;
+      padding: 20px;
+    }
+    h1, h2 {
+      margin: 10px 0;
+      text-align: center;
+    }
+    .page {
+      width: 800px;
+      margin: 0 auto 40px auto;
+      border: 2px solid #ccc;
+      padding: 20px;
+      box-sizing: border-box;
+      background: #fff;
+    }
+    .section {
+      border: 1px solid #aaa;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 4px;
+    }
+    .section h3 {
+      margin-top: 0;
+      font-size: 16px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+    label {
+      font-size: 12px;
+      display: block;
+      margin-top: 5px;
+    }
+    input, textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border: none;
+      border-bottom: 1px solid #666;
+      padding: 2px;
+      font-size: 14px;
+      background: transparent;
+      resize: none;
+    }
+    textarea {
+      min-height: 60px;
+      border: 1px solid #666;
+      border-radius: 3px;
+      padding: 4px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Dungeons & Dragons 5e</h1>
+<h2>Лист персонажа</h2>
+
+<div class="page">
+  <div class="section">
+    <h3>Основная информация</h3>
+    <div class="grid">
+      <div><label>Имя персонажа</label><input id="name"></div>
+      <div><label>Класс и уровень</label><input id="classLevel"></div>
+      <div><label>Предыстория</label><input id="background"></div>
+      <div><label>Игрок</label><input id="player"></div>
+      <div><label>Раса</label><input id="race"></div>
+      <div><label>Мировоззрение</label><input id="alignment"></div>
+      <div><label>Опыт</label><input id="xp"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Характеристики</h3>
+    <div class="grid">
+      <div><label>Сила</label><input id="str"></div>
+      <div><label>Ловкость</label><input id="dex"></div>
+      <div><label>Телосложение</label><input id="con"></div>
+      <div><label>Интеллект</label><input id="int"></div>
+      <div><label>Мудрость</label><input id="wis"></div>
+      <div><label>Харизма</label><input id="cha"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Навыки</h3>
+    <div class="grid">
+      <div><label>Акробатика</label><input id="acrobatics"></div>
+      <div><label>Атлетика</label><input id="athletics"></div>
+      <div><label>Восприятие</label><input id="perception"></div>
+      <div><label>Скрытность</label><input id="stealth"></div>
+      <div><label>История</label><input id="history"></div>
+      <div><label>Магия</label><input id="arcana"></div>
+      <div><label>Медицина</label><input id="medicine"></div>
+      <div><label>Природа</label><input id="nature"></div>
+      <div><label>Проницательность</label><input id="insight"></div>
+      <div><label>Религия</label><input id="religion"></div>
+      <div><label>Выживание</label><input id="survival"></div>
+      <div><label>Обман</label><input id="deception"></div>
+      <div><label>Запугивание</label><input id="intimidation"></div>
+      <div><label>Выступление</label><input id="performance"></div>
+      <div><label>Убеждение</label><input id="persuasion"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Боевые показатели</h3>
+    <div class="grid">
+      <div><label>Класс доспеха</label><input id="ac"></div>
+      <div><label>Инициатива</label><input id="initiative"></div>
+      <div><label>Скорость</label><input id="speed"></div>
+      <div><label>Макс. хиты</label><input id="hpMax"></div>
+      <div><label>Текущие хиты</label><input id="hpCurrent"></div>
+      <div><label>Временные хиты</label><input id="hpTemp"></div>
+      <div><label>Кости хитов</label><input id="hitDice"></div>
+      <div><label>Спасброски от смерти</label><input id="deathSaves"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Атаки и заклинания</h3>
+    <textarea id="attacks"></textarea>
+  </div>
+
+  <div class="section">
+    <h3>Снаряжение</h3>
+    <textarea id="equipment"></textarea>
+  </div>
+</div>
+
+<div class="page">
+  <div class="section">
+    <h3>Черты и умения</h3>
+    <textarea id="features"></textarea>
+  </div>
+
+  <div class="section">
+    <h3>Личность</h3>
+    <textarea id="personality"></textarea>
+  </div>
+
+  <div class="section">
+    <h3>Идеалы</h3>
+    <textarea id="ideals"></textarea>
+  </div>
+
+  <div class="section">
+    <h3>Привязанности</h3>
+    <textarea id="bonds"></textarea>
+  </div>
+
+  <div class="section">
+    <h3>Слабости</h3>
+    <textarea id="flaws"></textarea>
+  </div>
+
+  <div class="section">
+    <h3>Союзники и организации</h3>
+    <textarea id="allies"></textarea>
+  </div>
+
+  <div class="section">
+    <h3>Сокровища</h3>
+    <textarea id="treasures"></textarea>
+  </div>
+
+  <div class="section">
+    <h3>Доп. заметки</h3>
+    <textarea id="notes"></textarea>
+  </div>
+</div>
+
+<script>
+const fields = document.querySelectorAll("input, textarea");
+fields.forEach(f => {
+  const saved = localStorage.getItem("dnd_" + f.id);
+  if (saved) f.value = saved;
+  f.addEventListener("input", () => {
+    localStorage.setItem("dnd_" + f.id, f.value);
+  });
+});
+</script>
+
+</body>
+</html>
