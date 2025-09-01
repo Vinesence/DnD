@@ -1,7 +1,7 @@
 {
   "name": "D&D Лист персонажа",
   "short_name": "D&D Sheet",
-  "start_url": "dnd_character_sheet.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
