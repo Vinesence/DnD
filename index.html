@@ -139,56 +139,6 @@
   <button type="button" onclick="addAttack()">Добавить атаку</button>
 </div>
 
-<script>
-function saveAttacks() {
-  const data = [];
-  document.querySelectorAll(".attack-row").forEach(row => {
-    data.push({
-      name: row.querySelector(".atk-name").value,
-      bonus: row.querySelector(".atk-bonus").value,
-      damage: row.querySelector(".atk-damage").value
-    });
-  });
-  localStorage.setItem("dnd_attacks", JSON.stringify(data));
-}
-
-function loadAttacks() {
-  const saved = localStorage.getItem("dnd_attacks");
-  if (!saved) return;
-  const data = JSON.parse(saved);
-  data.forEach(a => addAttack(a.name, a.bonus, a.damage));
-}
-
-function addAttack(name = "", bonus = "", damage = "") {
-  const container = document.getElementById("attacks");
-  const row = document.createElement("div");
-  row.className = "attack-row";
-  row.style.display = "grid";
-  row.style.gridTemplateColumns = "2fr 1fr 2fr auto";
-  row.style.gap = "5px";
-  row.style.marginBottom = "5px";
-
-  row.innerHTML = `
-    <input class="atk-name" placeholder="Название" value="${name}">
-    <input class="atk-bonus" placeholder="Бонус" value="${bonus}">
-    <input class="atk-damage" placeholder="Урон/Тип" value="${damage}">
-    <button type="button" class="del-btn">❌</button>
-  `;
-
-  row.querySelectorAll("input").forEach(inp => inp.addEventListener("input", saveAttacks));
-  row.querySelector(".del-btn").addEventListener("click", () => {
-    row.remove();
-    saveAttacks();
-  });
-
-  container.appendChild(row);
-  saveAttacks();
-}
-
-window.addEventListener("DOMContentLoaded", loadAttacks);
-</script>
-
-
   <div class="section">
     <h3>Снаряжение</h3>
     <textarea id="equipment"></textarea>
@@ -238,6 +188,55 @@ window.addEventListener("DOMContentLoaded", loadAttacks);
 </div>
 
 <script>
+function saveAttacks() {
+  const data = [];
+  document.querySelectorAll(".attack-row").forEach(row => {
+    data.push({
+      name: row.querySelector(".atk-name").value,
+      bonus: row.querySelector(".atk-bonus").value,
+      damage: row.querySelector(".atk-damage").value
+    });
+  });
+  localStorage.setItem("dnd_attacks", JSON.stringify(data));
+}
+
+function loadAttacks() {
+  const saved = localStorage.getItem("dnd_attacks");
+  if (!saved) return;
+  const data = JSON.parse(saved);
+  data.forEach(a => addAttack(a.name, a.bonus, a.damage));
+}
+
+function addAttack(name = "", bonus = "", damage = "") {
+  const container = document.getElementById("attacks");
+  const row = document.createElement("div");
+  row.className = "attack-row";
+  row.style.display = "grid";
+  row.style.gridTemplateColumns = "2fr 1fr 2fr auto";
+  row.style.gap = "5px";
+  row.style.marginBottom = "5px";
+
+  row.innerHTML = `
+    <input class="atk-name" placeholder="Название" value="${name}">
+    <input class="atk-bonus" placeholder="Бонус" value="${bonus}">
+    <input class="atk-damage" placeholder="Урон/Тип" value="${damage}">
+    <button type="button" class="del-btn">❌</button>
+  `;
+
+  row.querySelectorAll("input").forEach(inp => inp.addEventListener("input", saveAttacks));
+  row.querySelector(".del-btn").addEventListener("click", () => {
+    row.remove();
+    saveAttacks();
+  });
+
+  container.appendChild(row);
+  saveAttacks();
+}
+
+window.addEventListener("DOMContentLoaded", loadAttacks);
+
+
+
 const fields = document.querySelectorAll("input, textarea");
 fields.forEach(f => {
   const saved = localStorage.getItem("dnd_" + f.id);
